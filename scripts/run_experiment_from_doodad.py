@@ -2,6 +2,7 @@ import doodad as dd
 from traj2vec.launchers.launcher_util_andrew import run_experiment_here
 
 args_dict = dd.get_args()
+# import ipdb; ipdb.set_trace()
 method_call = args_dict['method_call']
 run_experiment_kwargs = args_dict['run_experiment_kwargs']
 output_dir = args_dict['output_dir']

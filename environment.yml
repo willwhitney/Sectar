@@ -21,13 +21,11 @@ dependencies:
 - pillow=4.2.1=py35_0
 - pip=9.0.1=py35_1
 - pycparser=2.18=py35_0
-- pygpu=0.6.9=py35_0
 - python=3.5.4=0
 - readline=6.2=2
 - scipy=0.19.1=np113py35_0
 - setuptools=36.4.0=py35_0
 - six=1.10.0=py35_0
-- cuda80=1.0
 - pytorch=0.2.0
 - torchvision=0.1.9
 - sqlite=3.13.0=0
@@ -92,4 +90,3 @@ dependencies:
   - traitlets==4.3.2
   - urllib3==1.22
   - werkzeug==0.12.2
-

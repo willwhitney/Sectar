@@ -1,4 +1,4 @@
-from traj2vec.math.distributions.normal import Normal
+from traj2vec.math_.distributions.normal import Normal
 from traj2vec.models.containers.module_container import ModuleContainer
 from traj2vec.utils.torch_utils import np_to_var, Variable
 from traj2vec.nn.weight_inits import weights_init_mlp
@@ -10,7 +10,7 @@ from torch import nn
 from traj2vec.nn.rnn import RNN
 import numpy as np
 import torch
-from traj2vec.math.distributions.normal import Normal
+from traj2vec.math_.distributions.normal import Normal
 from traj2vec.models.containers.module_container import ModuleContainer
 from traj2vec.nn.weight_inits import weights_init_mlp, xavier_init
 from traj2vec.utils.torch_utils import np_to_var, Variable

@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import traj2vec.utils.logger as logger
 from torch.optim import Adam
-from traj2vec.math.distributions.normal import Normal
+from traj2vec.math_.distributions.normal import Normal
 from traj2vec.utils.plot_utils import plot_traj_sets
 from traj2vec.utils.torch_utils import get_numpy, FloatTensor
 from traj2vec.utils.torch_utils import gpu_enabled, Variable, np_to_var, from_numpy

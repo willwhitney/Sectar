@@ -1,5 +1,5 @@
 import torch
-from traj2vec.math.distributions.distribution import Distribution
+from traj2vec.math_.distributions.distribution import Distribution
 
 
 class Mixed(Distribution):

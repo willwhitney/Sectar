@@ -1,8 +1,8 @@
 import numpy as np
 import torch
-from traj2vec.math.distributions.categorical import RecurrentCategorical
-from traj2vec.math.distributions.mixed import Mixed
-from traj2vec.math.distributions.normal import Normal
+from traj2vec.math_.distributions.categorical import RecurrentCategorical
+from traj2vec.math_.distributions.mixed import Mixed
+from traj2vec.math_.distributions.normal import Normal
 from traj2vec.models.containers.module_container import ModuleContainer
 from traj2vec.nn.weight_inits import xavier_init
 from traj2vec.utils.torch_utils import np_to_var, Variable, get_numpy

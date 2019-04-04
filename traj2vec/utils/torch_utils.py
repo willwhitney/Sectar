@@ -5,12 +5,13 @@ import torch.autograd
 GPU wrappers
 """
 
-_use_gpu = True
+_use_gpu = False
 
 
 def set_gpu_mode(mode):
-    global _use_gpu
-    _use_gpu = mode
+    pass
+    # global _use_gpu
+    # _use_gpu = mode
 
 
 def gpu_enabled():

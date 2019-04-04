@@ -1,5 +1,5 @@
 import torch
-from traj2vec.math.distributions.categorical import Categorical, RecurrentMultiCategorical, RecurrentCategorical
+from traj2vec.math_.distributions.categorical import Categorical, RecurrentMultiCategorical, RecurrentCategorical
 from traj2vec.models.containers.module_container import ModuleContainer
 from traj2vec.nn.weight_inits import xavier_init
 from traj2vec.utils.torch_utils import Variable, get_numpy, np_to_var

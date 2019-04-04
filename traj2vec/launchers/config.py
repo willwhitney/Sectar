@@ -1,17 +1,20 @@
+import os
+HOME = os.path.expanduser("~")
+
 CODE_DIRS_TO_MOUNT = [
-    '/home/jcoreyes/embed/rllab',
-    '/home/jcoreyes/embed/traj2vecv3',
-    '/home/jcoreyes/embed/baselines'
+    HOME + '/code/rllab',
+    HOME + '/code/Sectar/traj2vec',
+    HOME + '/code/baselines'
 ]
 DIR_AND_MOUNT_POINT_MAPPINGS = [
     dict(
-        local_dir='/home/jcoreyes/.mujoco/',
+        local_dir=HOME + '/.mujoco/',
         mount_point='/root/.mujoco',
     ),
 ]
-LOCAL_LOG_DIR = '/home/jcoreyes/embed/traj2vecv3/data/local/'
+LOCAL_LOG_DIR = HOME + '/code/Sectar/traj2vec/data/local/'
 RUN_DOODAD_EXPERIMENT_SCRIPT_PATH = (
-    '/home/jcoreyes/embed/traj2vecv3/scripts/run_experiment_from_doodad.py'
+    HOME + '/code/Sectar/scripts/run_experiment_from_doodad.py'
 )
 DOODAD_DOCKER_IMAGE = 'jcoreyes/traj2vecv3:latest'
 

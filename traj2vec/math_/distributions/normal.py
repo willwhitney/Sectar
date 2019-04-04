@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from traj2vec.math.distributions.distribution import Distribution
+from traj2vec.math_.distributions.distribution import Distribution
 from traj2vec.utils.torch_utils import Variable
 
 

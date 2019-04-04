@@ -3,7 +3,7 @@ import torch
 import torch.autograd as autograd
 import traj2vec.utils.logger as logger
 from traj2vec.algos.batch_polopt import BatchPolopt
-from traj2vec.math.misc import krylov
+from traj2vec.math_.misc import krylov
 from traj2vec.utils.torch_utils import from_numpy, Variable, np_to_var, get_numpy
 
 

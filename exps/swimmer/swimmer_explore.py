@@ -25,7 +25,7 @@ from traj2vec.models.containers.mixed_network import MixedRecurrentNetwork
 from traj2vec.nn.mlp import MLP
 from traj2vec.nn.parameter import Parameter
 from traj2vec.nn.rnn import RNN
-from traj2vec.launchers.launcher_util_andrew import run_experiment
+from traj2vec.launchers.launcher_util import run_experiment
 from traj2vec.nn.running_stat import ObsNorm
 from traj2vec.utils.torch_utils import set_gpu_mode
 from traj2vec.envs.swimmer import SwimmerEnv, reward_fn, init_rstate
@@ -40,7 +40,7 @@ def run_task(vv):
     env_name = None
 
     goals = np.array(vv['goals'])
-    env = lambda : SwimmerEnv(vv['frame_skip'], goals=goals, include_rstate=False) 
+    env = lambda : SwimmerEnv(vv['frame_skip'], goals=goals, include_rstate=False)
 
     obs_dim = int(env().observation_space.shape[0])
     action_dim = int(env().action_space.shape[0])
@@ -164,8 +164,8 @@ def run_task(vv):
         )
     elif vv['policy_type'] == 'lstm':
         policy = LSTMPolicy(input_dim = obs_dim + latent_dim,
-                     hidden_dim = rnn_hidden_dim, 
-                     num_layers = 2, 
+                     hidden_dim = rnn_hidden_dim,
+                     num_layers = 2,
                      output_dim = action_dim)
 
     vae = TrajVAEBC(encoder=encoder, decoder=decoder, latent_dim=latent_dim, step_dim=step_dim,
@@ -177,13 +177,13 @@ def run_task(vv):
     baseline = ZeroBaseline()
     policy_algo = PPO(env, env_name, policy, baseline=baseline, obs_dim=obs_dim,
                              action_dim=action_dim, max_path_length=path_len, center_adv=True,
-                     optimizer=optim.Adam(policy.get_params(), vv['policy_lr'], eps=1e-5), 
+                     optimizer=optim.Adam(policy.get_params(), vv['policy_lr'], eps=1e-5),
                       use_gae=vv['use_gae'], epoch=10, ppo_batch_size=200)
 
     baseline_ex = ZeroBaseline()
     policy_ex_algo = PPO(env, env_name, policy_ex, baseline=baseline_ex, obs_dim=obs_dim,
                              action_dim=action_dim, max_path_length=path_len, center_adv=True,
-                     optimizer=optim.Adam(policy_ex.get_params(), vv['policy_lr'], eps=1e-5), 
+                     optimizer=optim.Adam(policy_ex.get_params(), vv['policy_lr'], eps=1e-5),
                       use_gae=vv['use_gae'], epoch=10, ppo_batch_size=200,
                       entropy_bonus = vv['entropy_bonus'])
 
@@ -208,11 +208,11 @@ def run_task(vv):
                   train_dataset, latent_dim, vae,
                   batch_size=400,
                   block_config=vv['block_config'],
-                  plan_horizon = vv['mpc_plan'], 
-                  max_horizon = vv['mpc_max'], 
+                  plan_horizon = vv['mpc_plan'],
+                  max_horizon = vv['mpc_max'],
                   mpc_batch = vv['mpc_batch'],
                   rand_per_mpc_step = vv['mpc_explore_step'],
-                  mpc_explore = mpc_explore, 
+                  mpc_explore = mpc_explore,
                   mpc_explore_batch = 1,
                   reset_ent = vv['reset_ent'],
                   vae_train_steps = vv['vae_train_steps'],
@@ -223,7 +223,7 @@ def run_task(vv):
                   )
 
     vaepd.train(train_dataset, test_dataset=test_dataset, dummy_dataset=dummy_dataset, plot_step=10, max_itr=vv['max_itr'], record_stats=True, print_step=1000,
-                             save_step=2, 
+                             save_step=2,
                start_itr=0, train_vae_after_add=vv['train_vae_after_add'],
                 joint_training=vv['joint_training'])
 
@@ -256,7 +256,7 @@ params = {
     'path_len': [99],
     'goals':goals,
     'mpc_plan': [30],
-    'mpc_max': [50], 
+    'mpc_max': [50],
     'frame_skip': [200],
     'add_frac': [100],
     'vae_train_steps': [30],
@@ -285,10 +285,10 @@ params = {
     # Buffer
     'initial_data_size': [9000],
     'buffer_size': [1000000],
-    
+
     'vae_loss_type': ['ll'],
     'kl_weight': [2],
-    
+
     'vae_lr': [1e-3],
     'policy_lr': [3e-4],
     'entropy_bonus': [1e-3],

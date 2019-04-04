@@ -84,6 +84,7 @@ def run_experiment(
     :param local_input_dir_to_mount_point_dict: Dictionary for doodad.
     :return:
     """
+    mode = 'local'
     try:
         import doodad
         import doodad.mode
@@ -141,14 +142,14 @@ def run_experiment(
         'local_docker': doodad.mode.LocalDocker(
             image=config.DOODAD_DOCKER_IMAGE,
         ),
-        'ec2': doodad.mode.EC2AutoconfigDocker(
-            image=config.DOODAD_DOCKER_IMAGE,
-            region='us-east-2',
-            instance_type='c4.large',
-            spot_price=0.03,
-            s3_log_prefix=exp_prefix,
-            s3_log_name="{}-id{}-s{}".format(exp_prefix, exp_id, seed),
-        ),
+        # 'ec2': doodad.mode.EC2AutoconfigDocker(
+        #     image=config.DOODAD_DOCKER_IMAGE,
+        #     region='us-east-2',
+        #     instance_type='c4.large',
+        #     spot_price=0.03,
+        #     s3_log_prefix=exp_prefix,
+        #     s3_log_name="{}-id{}-s{}".format(exp_prefix, exp_id, seed),
+        # ),
     }
 
     if base_log_dir is None:
